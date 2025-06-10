@@ -4,18 +4,18 @@
     "manifestVersion": "devPreview",
     "version": "1.0.0",
     "name": {
-        "short": "Govstream Outlook Assistant",
-        "full": "Govstream Email Assistant"
+        "short": "Govstream Email Assistant",
+        "full": "Govstream Email Response Generator"
     },
     "description": {
-        "short": "A template to get started.",
-        "full": "This is the template to get started."
+        "short": "Generate AI-powered responses to emails",
+        "full": "This add-in helps you generate contextual responses to emails using Govstream AI."
     },
     "developer": {
-        "name": "Kshitij",
-        "websiteUrl": "https://www.contoso.com",
-        "privacyUrl": "https://www.contoso.com/privacy",
-        "termsOfUseUrl": "https://www.contoso.com/servicesagreement"
+        "name": "Govstream AI",
+        "websiteUrl": "https://govstream.ai",
+        "privacyUrl": "https://govstream.ai/privacy",
+        "termsOfUseUrl": "https://govstream.ai/terms"
     },
     "icons": {
         "outline": "assets/outline.png",
@@ -34,6 +34,10 @@
                     "type": "Delegated"
                 },
                 {
+                    "name": "MailboxItem.Send.User",
+                    "type": "Delegated"
+                },
+                {
                     "name": "Document.ReadWrite.User",
                     "type": "Delegated"
                 }
@@ -41,16 +45,16 @@
         }
     },
     "validDomains": [
-        "contoso.com"
+        "contoso.com",
+        "govstream.ai",
+        "testing.api.govstream.ai",
+        "localhost:3000"
     ],
     "extensions": [
         {
             "requirements": {
                 "scopes": [
-                    "mail",
-                    "workbook",
-                    "document",
-                    "presentation"
+                    "mail"
                 ]
             },
             "runtimes": [
@@ -73,23 +77,7 @@
                         {
                             "id": "TaskPaneRuntimeShowMail",
                             "type": "openPage",
-                            "pinnable": false,
-                            "view": "dashboard"
-                        }
-                    ]
-                },
-                {
-                    "id": "TaskPaneRuntime",
-                    "type": "general",
-                    "code": {
-                        "page": "https://localhost:3000/taskpane.html"
-                    },
-                    "lifetime": "short",
-                    "actions": [
-                        {
-                            "id": "TaskPaneRuntimeShow",
-                            "type": "openPage",
-                            "pinnable": false,
+                            "pinnable": true,
                             "view": "dashboard"
                         }
                     ]
@@ -137,7 +125,7 @@
                             "groups": [
                                 {
                                     "id": "msgReadGroup",
-                                    "label": "Govstream Add-in",
+                                    "label": "Govstream AI",
                                     "icons": [
                                         {
                                             "size": 16,
@@ -156,7 +144,7 @@
                                         {
                                             "id": "msgReadOpenPaneButton",
                                             "type": "button",
-                                            "label": "Show Taskpane",
+                                            "label": "Generate Response",
                                             "icons": [
                                                 {
                                                     "size": 16,
@@ -172,114 +160,10 @@
                                                 }
                                             ],
                                             "supertip": {
-                                                "title": "Show Taskpane",
-                                                "description": "Opens a pane displaying all available properties."
+                                                "title": "Generate Response",
+                                                "description": "Generate an AI-powered response to this email."
                                             },
                                             "actionId": "TaskPaneRuntimeShowMail"
-                                        },
-                                        {
-                                            "id": "ActionButton",
-                                            "type": "button",
-                                            "label": "Perform an action",
-                                            "icons": [
-                                                {
-                                                    "size": 16,
-                                                    "url": "https://localhost:3000/assets/icon-16.png"
-                                                },
-                                                {
-                                                    "size": 32,
-                                                    "url": "https://localhost:3000/assets/icon-32.png"
-                                                },
-                                                {
-                                                    "size": 80,
-                                                    "url": "https://localhost:3000/assets/icon-80.png"
-                                                }
-                                            ],
-                                            "supertip": {
-                                                "title": "Perform an action",
-                                                "description": "Perform an action when clicked."
-                                            },
-                                            "actionId": "action"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "contexts": [
-                        "default"
-                    ],
-                    "tabs": [
-                        {
-                            "builtInTabId": "TabHome",
-                            "groups": [
-                                {
-                                    "id": "msgReadGroup",
-                                    "label": "Govstream Add-in",
-                                    "icons": [
-                                        {
-                                            "size": 16,
-                                            "url": "https://localhost:3000/assets/icon-16.png"
-                                        },
-                                        {
-                                            "size": 32,
-                                            "url": "https://localhost:3000/assets/icon-32.png"
-                                        },
-                                        {
-                                            "size": 80,
-                                            "url": "https://localhost:3000/assets/icon-80.png"
-                                        }
-                                    ],
-                                    "controls": [
-                                        {
-                                            "id": "msgReadOpenPaneButton",
-                                            "type": "button",
-                                            "label": "Show Taskpane",
-                                            "icons": [
-                                                {
-                                                    "size": 16,
-                                                    "url": "https://localhost:3000/assets/icon-16.png"
-                                                },
-                                                {
-                                                    "size": 32,
-                                                    "url": "https://localhost:3000/assets/icon-32.png"
-                                                },
-                                                {
-                                                    "size": 80,
-                                                    "url": "https://localhost:3000/assets/icon-80.png"
-                                                }
-                                            ],
-                                            "supertip": {
-                                                "title": "Show Taskpane",
-                                                "description": "Opens a pane displaying all available properties."
-                                            },
-                                            "actionId": "TaskPaneRuntimeShow"
-                                        },
-                                        {
-                                            "id": "ActionButton",
-                                            "type": "button",
-                                            "label": "Perform an action",
-                                            "icons": [
-                                                {
-                                                    "size": 16,
-                                                    "url": "https://localhost:3000/assets/icon-16.png"
-                                                },
-                                                {
-                                                    "size": 32,
-                                                    "url": "https://localhost:3000/assets/icon-32.png"
-                                                },
-                                                {
-                                                    "size": 80,
-                                                    "url": "https://localhost:3000/assets/icon-80.png"
-                                                }
-                                            ],
-                                            "supertip": {
-                                                "title": "Perform an action",
-                                                "description": "Perform an action when clicked."
-                                            },
-                                            "actionId": "action"
                                         }
                                     ]
                                 }

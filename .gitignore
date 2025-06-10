@@ -31,3 +31,6 @@ _storage_emulator
 
 # production
 /build
+
+#IDE
+.idea

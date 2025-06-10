@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Govstream Task Pane Add-in</title>
+    <title>Govstream Email Assistant</title>
 
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
@@ -23,32 +23,51 @@
 <body class="ms-font-m ms-welcome ms-Fabric">
     <header class="ms-welcome__header ms-bgColor-neutralLighter">
         <img width="90" height="90" src="../../appPackage/assets/logo-filled.png" alt="Govstream" title="Govstream" />
-        <h1 class="ms-font-su">Welcome</h1>
+        <h1 class="ms-font-su">Email Response Generator</h1>
     </header>
     <section id="sideload-msg" class="ms-welcome__main">
         <h2 class="ms-font-xl">Please <a target="_blank" href="https://learn.microsoft.com/office/dev/add-ins/testing/test-debug-office-add-ins#sideload-an-office-add-in-for-testing">sideload</a> your add-in to see app body.</h2>
     </section>
     <main id="app-body" class="ms-welcome__main" style="display: none;">
-        <h2 class="ms-font-xl"> Discover what Office Add-ins can do for you today! </h2>
-        <ul class="ms-List ms-welcome__features">
-            <li class="ms-ListItem">
-                <i class="ms-Icon ms-Icon--Ribbon ms-font-xl"></i>
-                <span class="ms-font-m">Achieve more with Office integration</span>
-            </li>
-            <li class="ms-ListItem">
-                <i class="ms-Icon ms-Icon--Unlock ms-font-xl"></i>
-                <span class="ms-font-m">Unlock features and functionality</span>
-            </li>
-            <li class="ms-ListItem">
-                <i class="ms-Icon ms-Icon--Design ms-font-xl"></i>
-                <span class="ms-font-m">Create and visualize like a pro</span>
-            </li>
-        </ul>
-        <p class="ms-font-l">Modify the source files, then click <b>Run</b>.</p>
-        <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
-            <span class="ms-Button-label">Run</span>
+        <p class="ms-font-l">Click the button below to generate a response for this email.</p>
+        
+        <div role="button" id="generate-response" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
+            <span class="ms-Button-label">Generate Response</span>
         </div>
-        <p><label id="item-subject"></label></p>
+        
+        <div id="status-container" style="margin-top: 20px; display: none;">
+            <div class="ms-Spinner ms-Spinner--large" id="spinner"></div>
+            <p id="status-message" class="ms-font-l"></p>
+        </div>
+        
+        <div id="error-container" style="margin-top: 20px; display: none;">
+            <p id="error-message" class="ms-font-l ms-fontColor-redDark"></p>
+            <div role="button" id="contact-support" class="ms-Button">
+                <span class="ms-Button-label">Contact Support</span>
+            </div>
+        </div>
+        
+        <!-- Login Dialog -->
+        <div id="login-dialog" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 4px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 class="ms-font-l" style="margin: 0;">Authentication Required</h3>
+                <span id="login-close" style="cursor: pointer; font-size: 16px;">✕</span>
+            </div>
+            <p class="ms-font-m">Please sign in to use the Email Assistant.</p>
+            <div class="ms-TextField">
+                <label class="ms-Label">Username/Email</label>
+                <input id="login-username" class="ms-TextField-field" type="text">
+            </div>
+            <div class="ms-TextField" style="margin-top: 10px;">
+                <label class="ms-Label">Password</label>
+                <input id="login-password" class="ms-TextField-field" type="password">
+            </div>
+            <div style="margin-top: 15px;">
+                <div role="button" id="login-button" class="ms-Button ms-Button--primary">
+                    <span class="ms-Button-label">Sign In</span>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 

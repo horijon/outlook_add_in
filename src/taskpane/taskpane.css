@@ -18,8 +18,8 @@
  
  .ms-welcome__header {
     padding: 20px;
-    padding-bottom: 30px;
-    padding-top: 100px;
+    padding-bottom: 10px;
+    padding-top: 10px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
@@ -38,7 +38,7 @@
     align-items: center;
     -webkit-flex: 1 0 0;
     flex: 1 0 0;
-    padding: 10px 20px;
+    padding: 20px 20px;
  }
  
  .ms-welcome__main > h2 {
@@ -62,7 +62,7 @@
  }
  
  .ms-welcome__action.ms-Button--hero {
-     margin-top: 30px;
+     margin-top: 20px;
  }
  
 .ms-Button.ms-Button--hero .ms-Button-label {
@@ -77,4 +77,53 @@
 
 b {
     font-weight: bold;
+}
+
+/* New styles for email response generator */
+#status-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ms-Spinner {
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#error-container {
+    padding: 15px;
+    background-color: #fdf2f2;
+    border-left: 4px solid #e74c3c;
+    margin-top: 20px;
+    width: 90%;
+}
+
+#error-message {
+    margin-top: 0;
+    color: #c0392b;
+}
+
+#contact-support {
+    margin-top: 10px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#contact-support:hover {
+    background-color: #1a252f;
 }

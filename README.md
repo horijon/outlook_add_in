@@ -48,3 +48,61 @@ To check that your manifest file is valid:
 
 ## Known Issues
 - Publish is not supported for an Office add-in project now.
+
+# Govstream Email Assistant for Outlook
+
+This Outlook add-in helps you generate AI-powered responses to emails using Govstream AI. It provides a simple interface to analyze the content of an email and generate appropriate responses.
+
+## Features
+
+- **One-click response generation**: Generate contextual responses to emails with a single click
+- **AI-powered**: Uses Govstream AI to create intelligent, personalized responses
+- **Simple interface**: Clean UI integrated directly in Outlook
+- **Works with Outlook**: Compatible with Outlook on the web, Windows, and Mac
+
+## How it works
+
+1. Open an email in Outlook
+2. Click the "Generate Response" button in the ribbon or open the add-in taskpane
+3. The add-in will analyze the email and generate a contextual response
+4. The response will be opened as a draft reply that you can review and send
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org) (version 18 or higher)
+- [npm](https://www.npmjs.com/) (included with Node.js)
+- [Office 365 account](https://www.office.com/) (for testing the add-in)
+
+## Development Setup
+
+1. Clone this repository
+2. Install dependencies with `npm install`
+3. Start the development server with `npm start`
+
+For local development and testing, use:
+
+```bash
+npm run dev-server
+```
+
+To build for production:
+
+```bash
+npm run build
+```
+
+## Deployment
+
+The add-in can be deployed to users in your organization through the Microsoft 365 admin center or using centralized deployment.
+
+## Configuration
+
+The add-in connects to the Govstream API endpoint at https://testing.api.govstream.ai. To change this configuration, edit the `BACKEND_API_URL` in `src/taskpane/outlook.ts`.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+For any issues or questions, please contact support at [https://govstream.ai](https://govstream.ai).
