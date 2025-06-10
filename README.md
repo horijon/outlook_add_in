@@ -1,14 +1,12 @@
 # Build Office add-ins using Microsoft 365 Agents Toolkit
-Office add-ins are integrations built by third parties into Office by using our web-based platform. This add-in template supports: Word, Excel, PowerPoint, Outlook.
+Office add-ins are integrations built by third parties into Office by using our web-based platform. This add-in template supports: Outlook.
+Office add-ins are integrations built by third parties into Office by using our web-based platform. This add-in template supports: Outlook.
 Now you have the ability to create a single unit of distribution for all your Microsoft 365 extensions by using the same manifest format and schema, based on the current JSON-formatted Teams manifest.
-
-> Note:
-> The unified app manifest for Word, Excel, and PowerPoint is in preview. Visit [this link](https://aka.ms/officeversions) to check the required Office Versions. Also, publishing a unified add-in for Word, Excel, PowerPoint is not supported currently.
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/), supported versions: 18, 20, 22.
-- Word/Excel/PowerPoint for Windows: Beta Channel, Build 18514 or higher. Outlook For Windows, Build 16425 or higher. Follow [this link](https://github.com/OfficeDev/TeamsFx/wiki/How-to-switch-Outlook-client-update-channel-and-verify-Outlook-client-build-version) for switching update channels and check your Office client build version.
+- Outlook For Windows, Build 16425 or higher. Follow [this link](https://github.com/OfficeDev/TeamsFx/wiki/How-to-switch-Outlook-client-update-channel-and-verify-Outlook-client-build-version) for switching update channels and check your Office client build version.
 - Edge installed for debugging Office add-in.
 - A M365 account. If you do not have M365 account, apply one from [M365 developer program](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
 - [Microsoft 365 Agents Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.0.0 and higher.

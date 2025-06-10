@@ -9,6 +9,7 @@
      height: 100%;
      margin: 0;
      padding: 0;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  }
  
  ul {
@@ -17,14 +18,20 @@
  }
  
  .ms-welcome__header {
-    padding: 20px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding: 12px 16px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #f5f5f5;
+ }
+
+ .ms-welcome__header h1 {
+    color: #202124;
+    margin: 0;
+    font-weight: 500;
  }
 
  .ms-welcome__main {
@@ -34,66 +41,118 @@
     flex-direction: column;
     -webkit-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    -webkit-align-items: center;
-    align-items: center;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
     -webkit-flex: 1 0 0;
     flex: 1 0 0;
-    padding: 20px 20px;
+    padding: 16px;
  }
  
  .ms-welcome__main > h2 {
      width: 100%;
      text-align: center;
+     font-size: 14px;
+     font-weight: 500;
  }
  
  .ms-welcome__features {
      list-style-type: none;
-     margin-top: 20px;
+     margin-top: 16px;
  }
  
  .ms-welcome__features.ms-List .ms-ListItem {
-     padding-bottom: 20px;
+     padding-bottom: 16px;
      display: -webkit-flex;
      display: flex;
  }
  
  .ms-welcome__features.ms-List .ms-ListItem > .ms-Icon {
-     margin-right: 10px;
+     margin-right: 8px;
  }
  
  .ms-welcome__action.ms-Button--hero {
-     margin-top: 20px;
+     margin-top: 16px;
  }
  
 .ms-Button.ms-Button--hero .ms-Button-label {
-  color: #0078d7;
+  color: #1a73e8;
 }
 
 .ms-Button.ms-Button--hero:hover .ms-Button-label,
 .ms-Button.ms-Button--hero:focus .ms-Button-label{
-  color: #005a9e;
+  color: #1967d2;
   cursor: pointer;
 }
 
+.ms-Button.ms-Button--primary {
+  background-color: #1a73e8;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 16px;
+}
+
+.ms-Button.ms-Button--primary:hover,
+.ms-Button.ms-Button--primary:focus {
+  background-color: #1967d2;
+  cursor: pointer;
+}
+
+.ms-Button.ms-Button--primary .ms-Button-label {
+  color: white;
+  font-weight: 500;
+}
+
+.ms-Button {
+  border-radius: 4px;
+  padding: 6px 16px;
+  border: 1px solid #dadce0;
+  transition: background-color 0.2s;
+}
+
+.ms-Button:hover,
+.ms-Button:focus {
+  background-color: #f1f3f4;
+  cursor: pointer;
+}
+
+.ms-Button.ms-Button--text {
+  border: none;
+  background: transparent;
+  color: #1a73e8;
+  padding: 0;
+}
+
+.ms-Button.ms-Button--text:hover,
+.ms-Button.ms-Button--text:focus {
+  background: transparent;
+  color: #1967d2;
+  text-decoration: underline;
+}
+
 b {
-    font-weight: bold;
+    font-weight: 500;
 }
 
 /* New styles for email response generator */
 #status-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    width: 100%;
     text-align: center;
-    margin-top: 20px;
 }
 
 .ms-Spinner {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     display: inline-block;
-    width: 40px;
-    height: 40px;
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
+    width: 24px;
+    height: 24px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #1a73e8;
     border-radius: 50%;
-    animation: spin 2s linear infinite;
+    animation: spin 1.5s linear infinite;
 }
 
 @keyframes spin {
@@ -102,28 +161,61 @@ b {
 }
 
 #error-container {
-    padding: 15px;
-    background-color: #fdf2f2;
-    border-left: 4px solid #e74c3c;
-    margin-top: 20px;
-    width: 90%;
+    padding: 12px;
+    background-color: #fef7f6;
+    border-left: 3px solid #ea4335;
+    margin-top: 16px;
+    width: calc(100% - 32px);
+    border-radius: 0 4px 4px 0;
 }
 
 #error-message {
     margin-top: 0;
-    color: #c0392b;
+    margin-bottom: 8px;
+    color: #c5221f;
 }
 
 #contact-support {
-    margin-top: 10px;
-    background-color: #2c3e50;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
+    background-color: white;
+    color: #1a73e8;
+    border: 1px solid #dadce0;
 }
 
 #contact-support:hover {
-    background-color: #1a252f;
+    background-color: #f1f3f4;
+}
+
+/* General font size adjustments for crisper UI */
+.ms-font-m {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.ms-font-s {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.ms-font-xs {
+    font-size: 11px;
+    line-height: 14px;
+}
+
+.ms-font-l {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+}
+
+/* Provide full width for buttons */
+#generate-response {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+/* Additional spacing and alignment fixes */
+p {
+    margin-top: 0;
+    margin-bottom: 8px;
 }

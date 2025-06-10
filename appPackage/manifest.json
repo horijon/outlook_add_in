@@ -4,8 +4,8 @@
     "manifestVersion": "devPreview",
     "version": "1.0.0",
     "name": {
-        "short": "Govstream Email Assistant",
-        "full": "Govstream Email Response Generator"
+        "short": "GovStream AI CSR Assistant",
+        "full": "GovStream AI CSR Assistant"
     },
     "description": {
         "short": "Generate AI-powered responses to emails",
@@ -21,7 +21,7 @@
         "outline": "assets/outline.png",
         "color": "assets/color.png"
     },
-    "accentColor": "#230201",
+    "accentColor": "#000999",
     "localizationInfo": {
         "defaultLanguageTag": "en-us",
         "additionalLanguages": []
@@ -125,19 +125,19 @@
                             "groups": [
                                 {
                                     "id": "msgReadGroup",
-                                    "label": "Govstream AI",
+                                    "label": "GovStream AI CSR Assistant",
                                     "icons": [
                                         {
                                             "size": 16,
-                                            "url": "https://localhost:3000/assets/icon-16.png"
+                                            "url": "https://localhost:3000/assets/logo.png"
                                         },
                                         {
                                             "size": 32,
-                                            "url": "https://localhost:3000/assets/icon-32.png"
+                                            "url": "https://localhost:3000/assets/logo.png"
                                         },
                                         {
                                             "size": 80,
-                                            "url": "https://localhost:3000/assets/icon-80.png"
+                                            "url": "https://localhost:3000/assets/logo.png"
                                         }
                                     ],
                                     "controls": [
@@ -148,15 +148,15 @@
                                             "icons": [
                                                 {
                                                     "size": 16,
-                                                    "url": "https://localhost:3000/assets/icon-16.png"
+                                                    "url": "https://localhost:3000/assets/logo.png"
                                                 },
                                                 {
                                                     "size": 32,
-                                                    "url": "https://localhost:3000/assets/icon-32.png"
+                                                    "url": "https://localhost:3000/assets/logo.png"
                                                 },
                                                 {
                                                     "size": 80,
-                                                    "url": "https://localhost:3000/assets/icon-80.png"
+                                                    "url": "https://localhost:3000/assets/logo.png"
                                                 }
                                             ],
                                             "supertip": {

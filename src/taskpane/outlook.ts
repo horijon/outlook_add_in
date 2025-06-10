@@ -5,10 +5,12 @@
 
 /* global document, Office */
 
+import { getApiEndpoints } from './config';
+
 function showStatus(message: string): void {
   const statusContainer = document.getElementById("status-container");
   const statusMessage = document.getElementById("status-message");
-  
+
   if (statusContainer && statusMessage) {
     statusMessage.textContent = message;
     statusContainer.style.display = "block";
@@ -25,7 +27,7 @@ function hideStatus(): void {
 function showError(message: string): void {
   const errorContainer = document.getElementById("error-container");
   const errorMessage = document.getElementById("error-message");
-  
+
   if (errorContainer && errorMessage) {
     errorMessage.textContent = message;
     errorContainer.style.display = "block";
@@ -39,90 +41,12 @@ function hideError(): void {
   }
 }
 
-// Function to handle manual login
-async function handleLogin(): Promise<void> {
-  const usernameInput = document.getElementById("login-username") as HTMLInputElement;
-  const passwordInput = document.getElementById("login-password") as HTMLInputElement;
-  
-  if (!usernameInput || !passwordInput) {
-    showError("Login form elements not found");
-    return;
-  }
-  
-  const username = usernameInput.value.trim();
-  const password = passwordInput.value.trim();
-  
-  if (!username || !password) {
-    showError("Please enter both username and password");
-    return;
-  }
-  
-  try {
-    showStatus("Signing in...");
-    
-    // Replace with your actual authentication endpoint
-    const AUTH_API_URL = "https://api.govstream.ai/auth/login";
-    // const AUTH_API_URL = "http://localhost:3020/auth/login"; // For development
-    
-    const response = await fetch(AUTH_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        username,
-        password
-      })
-    });
-    
-    if (!response.ok) {
-      throw new Error("Authentication failed. Please check your credentials.");
-    }
-    
-    const data = await response.json();
-    
-    if (data && data.token) {
-      // Store the token in localStorage
-      localStorage.setItem("auth_token", data.token);
-      
-      // Hide the login dialog
-      const loginDialog = document.getElementById("login-dialog");
-      if (loginDialog) {
-        loginDialog.style.display = "none";
-      }
-      
-      hideStatus();
-      
-      // Optionally refresh the UI or show a success message
-      showStatus("Signed in successfully!");
-      setTimeout(hideStatus, 2000);
-    } else {
-      throw new Error("Invalid response from authentication server");
-    }
-  } catch (error) {
-    hideStatus();
-    showError(error.message || "An error occurred during login");
-  }
-}
-
 Office.onReady((info) => {
   if (info.host === Office.HostType.Outlook) {
     document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
     document.getElementById("generate-response").onclick = generateResponse;
     document.getElementById("contact-support").onclick = contactSupport;
-    document.getElementById("login-button").onclick = handleLogin;
-    
-    // Add login dialog close functionality
-    const loginCloseBtn = document.getElementById("login-close");
-    if (loginCloseBtn) {
-      loginCloseBtn.onclick = () => {
-        const loginDialog = document.getElementById("login-dialog");
-        if (loginDialog) {
-          loginDialog.style.display = "none";
-        }
-      };
-    }
   }
 });
 
@@ -180,10 +104,10 @@ export async function generateResponse() {
     // In a real app, you might want to get an auth token here
     // const token = await getAuthToken();
 
-    // Call your backend API - replace with your actual endpoint
-    // const BACKEND_API_URL = "https://testing.api.govstream.ai";
-    const BACKEND_API_URL = "http://localhost:3020";
-    const response = await fetch(`${BACKEND_API_URL}/email-assistant/process-email`, {
+    // Get API endpoints from config
+    const apiEndpoints = getApiEndpoints();
+
+    const response = await fetch(apiEndpoints.emailProcess, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -200,7 +124,7 @@ export async function generateResponse() {
 
     const data = await response.json();
 
-    if (data.status !== "success") {
+    if (data?.status !== "success") {
       throw new Error(data.message || "An unknown error occurred");
     }
 
